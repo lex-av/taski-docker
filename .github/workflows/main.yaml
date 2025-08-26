@@ -159,6 +159,8 @@ jobs:
         - frontend_build
         - gateway_build
       steps:
+        - name: Check out the repo
+          uses: actions/checkout@v3
         - name: Debug current dir
           run: |
             pwd
