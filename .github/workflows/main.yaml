@@ -170,8 +170,8 @@ jobs:
             username: ${{ secrets.VM_USER }}
             key: ${{ secrets.SSH_KEY }}
             passphrase: ${{ secrets.SSH_PASSPHRASE }}
-            source: "taski-docker/docker-compose.production.yaml"
-            target: "taski-docker/docker-compose.production.yaml"
+            source: "docker-compose.production.yaml"
+            target: "taski"
         - name: Executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
           with:
@@ -183,7 +183,7 @@ jobs:
             # которые нужно выполнить на сервере, 
             # с которым установлено соединение
             script: |
-              cd taski-docker
+              cd taski
               # Выполняет pull образов с Docker Hub
               sudo docker compose -f docker-compose.production.yml pull
               # Перезапускает все контейнеры в Docker Compose
