@@ -170,8 +170,8 @@ jobs:
             username: ${{ secrets.VM_USER }}
             key: ${{ secrets.SSH_KEY }}
             passphrase: ${{ secrets.SSH_PASSPHRASE }}
-            source: "taski-docker/docker-compose.production.yml"
-            target: "taski"
+            source: "taski-docker/docker-compose.production.yaml"
+            target: "taski-docker/docker-compose.production.yaml"
         - name: Executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
           with:
