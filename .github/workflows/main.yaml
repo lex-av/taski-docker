@@ -159,16 +159,6 @@ jobs:
         - frontend_build
         - gateway_build
       steps:
-        - name: Show SSH key fingerprint
-          run: |
-            echo "${{ secrets.SSH_KEY }}" > id_rsa
-            chmod 600 id_rsa
-            ssh-keygen -lf id_rsa
-        - name: Debug SSH connection
-          run: |
-            echo "${{ secrets.SSH_KEY }}" > id_rsa
-            chmod 600 id_rsa
-            ssh -vvv -i id_rsa -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "echo Connected OK"
         # Копируем docker-compose.production.yml на продакшен-сервер
         - name: Copy docker-compose.yml via ssh
           uses: appleboy/scp-action@master
