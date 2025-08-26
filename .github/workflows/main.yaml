@@ -159,6 +159,10 @@ jobs:
         - frontend_build
         - gateway_build
       steps:
+        - name: Debug current dir
+          run: |
+            pwd
+            ls -alh
         # Копируем docker-compose.production.yml на продакшен-сервер
         - name: Copy docker-compose.yml via ssh
           uses: appleboy/scp-action@master
